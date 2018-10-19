@@ -76,8 +76,8 @@ func dbBatchWrite(jctx *JCtx) {
 				}
 
 				jLog(jctx, fmt.Sprintf("Batch processing: #packets:%d #points:%d\n", n, len(bp.Points())))
-				jLog(jctx, bp.Points())
-
+				fmt.Println("======", bp.Points(), "========")
+				
 				if err := (*jctx.influxCtx.influxClient).Write(bp); err != nil {
 					jLog(jctx, fmt.Sprintf("Batch DB write failed: %v", err))
 				} else {
